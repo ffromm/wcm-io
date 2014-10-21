@@ -49,7 +49,7 @@
 
     <jcr-mock.version>1.0.0-SNAPSHOT</jcr-mock.version>
     <osgi-mock.version>1.0.0-SNAPSHOT</osgi-mock.version>
-    <sling-mock.version>1.0.0-SNAPSHOT</sling-mock.version>
+    <sling-mock.version>1.0.1-SNAPSHOT</sling-mock.version>
 
     <!-- TODO: remove after next release! -->
     <baseline.skip>true</baseline.skip>
@@ -87,7 +87,7 @@
     <dependency>
       <groupId>io.wcm</groupId>
       <artifactId>io.wcm.sling.models</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
 
