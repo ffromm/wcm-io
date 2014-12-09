@@ -28,7 +28,6 @@ import io.wcm.wcm.ui.extjs.provider.AbstractPageProvider;
 import java.util.List;
 
 import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.servlet.http.HttpServletResponse;
 
@@ -147,7 +146,7 @@ public class TemplateFilterPageTreeProviderTest {
     }
   }
 
-  private void mockQueryResult(String... paths) throws RepositoryException {
+  private void mockQueryResult(String... paths) {
     List<String> resultPaths = ImmutableList.copyOf(paths);
     List<Node> resultNodes = Lists.transform(resultPaths, new Function<String, Node>() {
       @Override
@@ -155,7 +154,7 @@ public class TemplateFilterPageTreeProviderTest {
         return context.resourceResolver().getResource(path).adaptTo(Node.class);
       }
     });
-    MockJcr.setQueryResult(context.resourceResolver().adaptTo(Session.class).getWorkspace().getQueryManager(), resultNodes);
+    MockJcr.setQueryResult(context.resourceResolver().adaptTo(Session.class), resultNodes);
   }
 
   private void assertItem(JSONObject jsonObject, String name, String title, String template,
